@@ -1,0 +1,295 @@
+package tutorial;
+
+option java_package = "org.libliflin.games.wordrelease.mediawikiexport07";
+option java_outer_classname = "MediaWikiExportV07Protos";
+
+/*
+<complexType name="MediaWikiType">
+<sequence>
+<element name="siteinfo" type="mw:SiteInfoType" minOccurs="0" maxOccurs="1"/>
+<element name="page" type="mw:PageType" minOccurs="0" maxOccurs="unbounded"/>
+<element name="logitem" type="mw:LogItemType" minOccurs="0" maxOccurs="unbounded"/>
+</sequence>
+<attribute name="version" type="string" use="required"/>
+<attribute ref="xml:lang" use="required"/>
+</complexType>
+*/
+message MediaWiki {
+    optional string version = 3;
+    optional SiteInfo siteInfo = 4;
+    repeated Page page = 1;
+    repeated LogItem logItem = 2;
+}
+/*
+<complexType name="SiteInfoType">
+<sequence>
+<element name="sitename" type="string" minOccurs="0"/>
+<element name="base" type="anyURI" minOccurs="0"/>
+<element name="generator" type="string" minOccurs="0"/>
+<element name="case" type="mw:CaseType" minOccurs="0"/>
+<element name="namespaces" type="mw:NamespacesType" minOccurs="0"/>
+</sequence>
+</complexType>
+*/
+message SiteInfo{
+    optional string siteName = 1;
+    optional string base = 2;
+    optional string generator = 3;
+    optional Case case = 4;
+    optional Namespaces namespaces = 5;
+}
+/*
+<simpleType name="CaseType">
+<restriction base="NMTOKEN">
+<!-- Cannot have two titles differing only by case of first letter. -->
+<!-- Default behavior through 1.5, $wgCapitalLinks = true -->
+<enumeration value="first-letter"/>
+<!-- Complete title is case-sensitive -->
+<!-- Behavior when $wgCapitalLinks = false -->
+<enumeration value="case-sensitive"/>
+<!-- Cannot have non-case senstitive titles eg [[FOO]] == [[Foo]] -->
+<!-- Not yet implemented as of MediaWiki 1.18 -->
+<enumeration value="case-insensitive"/>
+</restriction>
+</simpleType>
+*/
+enum Case{
+    FIRST_LETTER = 1;
+    CASE_SENSTIVE = 2;
+    CASE_INSENSITIVE = 3;
+}
+/*
+<complexType name="NamespacesType">
+<sequence>
+<element name="namespace" type="mw:NamespaceType" minOccurs="0" maxOccurs="unbounded"/>
+</sequence>
+</complexType>
+*/
+message Namespaces{
+    repeated Namespace namespace = 1;
+}
+/*
+<complexType name="NamespaceType">
+<simpleContent>
+<extension base="string">
+<attribute name="key" type="integer"/>
+<attribute name="case" type="mw:CaseType"/>
+</extension>
+</simpleContent>
+</complexType>
+*/
+message Namespace{
+    optional string namespace = 1;
+    optional int32 key = 2;
+    optional Case case = 3;
+}
+/*
+<complexType name="PageType">
+<sequence>
+<!-- Title in text form. (Using spaces, not underscores; with namespace ) -->
+<element name="title" type="string"/>
+<!-- Namespace in canonical form -->
+<element name="ns" type="nonNegativeInteger"/>
+<!-- optional page ID number -->
+<element name="id" type="positiveInteger"/>
+<!-- flag if the current revision is a redirect -->
+<element name="redirect" type="mw:RedirectType" minOccurs="0" maxOccurs="1"/>
+<!-- comma-separated list of string tokens, if present -->
+<element name="restrictions" type="string" minOccurs="0"/>
+<!-- Zero or more sets of revision or upload data -->
+<choice minOccurs="0" maxOccurs="unbounded">
+<element name="revision" type="mw:RevisionType"/>
+<element name="upload" type="mw:UploadType"/>
+</choice>
+<!-- Zero or One sets of discussion threading data -->
+<element name="discussionthreadinginfo" minOccurs="0" maxOccurs="1" type="mw:DiscussionThreadingInfo"/>
+</sequence>
+</complexType>
+*/
+message Page{
+    optional string title = 2;
+    optional int32 ns = 3;
+    optional int32 id = 4;
+    optional Redirect redirect = 5;
+    optional string restrictions = 6;
+    repeated RevisionUpload revisionupload = 1;
+    optional DiscussionThreadingInfo discussionThreadingInfo = 7;
+}
+/*
+
+*/
+message Redirect{
+}
+/*
+    choice from inside Page.
+*/
+message RevisionUpload{
+    optional Revision revision = 1;
+    optional Upload upload = 2;
+}
+/*
+<complexType name="RevisionType">
+<sequence>
+<element name="id" type="positiveInteger"/>
+<element name="parentid" type="positiveInteger" minOccurs="0"/>
+<element name="timestamp" type="dateTime"/>
+<element name="contributor" type="mw:ContributorType"/>
+<element name="minor" minOccurs="0" maxOccurs="1"/>
+<element name="comment" type="mw:CommentType" minOccurs="0" maxOccurs="1"/>
+<element name="sha1" type="string"/>
+<element name="text" type="mw:TextType"/>
+</sequence>
+</complexType>
+*/
+message Revision{
+    optional int32 id = 1;
+    optional int32 parentid = 2;
+    optional int64 timestamp = 3;
+    optional Contributor contributor = 4;
+    optional bool minor = 5;
+    optional Comment comment = 6;
+    optional string sha1 = 7;
+    optional Text text = 8;
+}
+/*
+<complexType name="ContributorType">
+<sequence>
+<element name="username" type="string" minOccurs="0"/>
+<element name="id" type="positiveInteger" minOccurs="0"/>
+<element name="ip" type="string" minOccurs="0"/>
+</sequence>
+<!-- This allows deleted=deleted on non-empty elements, but XSD is not omnipotent -->
+<attribute name="deleted" use="optional" type="mw:DeletedFlagType"/>
+</complexType>
+*/
+message Contributor{
+    optional string username = 1;
+    optional int32 id = 2;
+    optional string ip = 3;
+    optional bool deleted = 4;
+}
+/*
+<complexType name="CommentType">
+<simpleContent>
+<extension base="string">
+<!-- This allows deleted=deleted on non-empty elements, but XSD is not omnipotent -->
+<attribute name="deleted" use="optional" type="mw:DeletedFlagType"/>
+</extension>
+</simpleContent>
+</complexType>
+*/
+message Comment{
+    optional string comment = 1;
+    optional bool deleted = 2;
+}
+/*
+<complexType name="TextType">
+<simpleContent>
+<extension base="string">
+<attribute ref="xml:space" use="optional" default="preserve"/>
+<!-- This allows deleted=deleted on non-empty elements, but XSD is not omnipotent -->
+<attribute name="deleted" use="optional" type="mw:DeletedFlagType"/>
+<!-- This isn't a good idea; we should be using "ID" instead of "NMTOKEN" -->
+<!-- However, "NMTOKEN" is strictest definition that is both compatible with existing -->
+<!-- usage ([0-9]+) and with the "ID" type. -->
+<attribute name="id" type="NMTOKEN"/>
+<attribute name="bytes" use="optional" type="nonNegativeInteger"/> -- bytes is a reserved word :<
+</extension>
+</simpleContent>
+</complexType>
+*/
+message Text{
+    optional string text = 1;
+    optional bool deleted = 2;
+    optional int32 id = 3;
+    optional int32 numBytes = 4;
+}
+
+/*
+<complexType name="UploadType">
+<sequence>
+<!-- Revision-style data... -->
+<element name="timestamp" type="dateTime"/>
+<element name="contributor" type="mw:ContributorType"/>
+<element name="comment" type="string" minOccurs="0"/>
+<!-- Filename. (Using underscores, not spaces. No 'File:' namespace marker.) -->
+<element name="filename" type="string"/>
+<!-- URI at which this resource can be obtained -->
+<element name="src" type="anyURI"/>
+<element name="size" type="positiveInteger"/>
+<!-- TODO: add other metadata fields -->
+</sequence>
+</complexType>
+*/
+message Upload{
+    optional int64 timestamp = 1;
+    optional Contributor contributor = 2;
+    optional string comment = 3;
+    optional string fileName = 4;
+    optional string src = 5;
+    optional int32 size = 6;
+}
+/*
+<complexType name="DiscussionThreadingInfo">
+<sequence>
+<element name="ThreadSubject" type="string"/>
+<element name="ThreadParent" type="positiveInteger"/>
+<element name="ThreadAncestor" type="positiveInteger"/>
+<element name="ThreadPage" type="string"/>
+<element name="ThreadID" type="positiveInteger"/>
+<element name="ThreadAuthor" type="string"/>
+<element name="ThreadEditStatus" type="string"/>
+<element name="ThreadType" type="string"/>
+</sequence>
+</complexType>
+*/
+message DiscussionThreadingInfo{
+    optional string threadSubject = 1;
+    optional int32 threadParent = 2;
+    optional int32 threadAncestor = 3;
+    optional string threadPage = 4;
+    optional int32 threadId = 5;
+    optional string threadAuthor = 6;
+    optional string threadEditStatus = 7;
+    optional string threadType = 8;
+}
+/*
+<complexType name="LogItemType">
+<sequence>
+<element name="id" type="positiveInteger"/>
+<element name="timestamp" type="dateTime"/>
+<element name="contributor" type="mw:ContributorType"/>
+<element name="comment" type="mw:CommentType" minOccurs="0"/>
+<element name="type" type="string"/>
+<element name="action" type="string"/>
+<element name="text" type="mw:LogTextType" minOccurs="0" maxOccurs="1"/>
+<element name="logtitle" type="string" minOccurs="0" maxOccurs="1"/>
+<element name="params" type="mw:LogParamsType" minOccurs="0" maxOccurs="1"/>
+</sequence>
+</complexType>
+*/
+message LogItem{
+    optional int32 id = 1;
+    optional int64 timestamp = 2;
+    optional Contributor contributor = 3;
+    optional Comment comment = 4;
+    optional string type = 5;
+    optional string action = 6;
+    optional LogText text = 7;
+    optional string logTitle = 8;
+    optional string params = 9;
+}
+/*
+<complexType name="LogTextType">
+<simpleContent>
+<extension base="string">
+<!-- This allows deleted=deleted on non-empty elements, but XSD is not omnipotent -->
+<attribute name="deleted" use="optional" type="mw:DeletedFlagType"/>
+</extension>
+</simpleContent>
+</complexType>
+*/
+message LogText{
+    optional string logText = 1;
+    optional bool deleted = 2;
+}
