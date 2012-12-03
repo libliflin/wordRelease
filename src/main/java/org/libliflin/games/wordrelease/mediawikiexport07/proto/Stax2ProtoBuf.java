@@ -25,6 +25,7 @@ import org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Proto
 import org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Contributor;
 import org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.DiscussionThreadingInfo;
 import org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.LogItem;
+import org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.LogText;
 import org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.MediaWiki;
 import org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Namespace;
 import org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Namespaces;
@@ -145,6 +146,7 @@ public class Stax2ProtoBuf {
                 builder.addLogItem(readLogItem(reader));
             }else{
                 System.out.println("unable to read Media wiki sub element "+ name);
+                break;
             }
         }
         return builder.build();
@@ -169,6 +171,7 @@ public class Stax2ProtoBuf {
                 builder.setDiscussionThreadingInfo(readDiscussionThreadingInfo(reader));
             }else{
                 System.out.println("unable to read Page sub element "+ name);
+                break;
             }
         }
         return builder.build();
@@ -213,6 +216,7 @@ public class Stax2ProtoBuf {
                 builder.setText(readText(reader));
             }else{
                 System.out.println("unable to read Revision sub element "+ name);
+                break;
             }
         }
         return builder.build();
@@ -230,6 +234,7 @@ public class Stax2ProtoBuf {
                 builder.setIp(readString(reader));
             }else{
                 System.out.println("unable to read Contributor sub element "+ name);
+                break;
             }
         }
         return builder.build();
@@ -266,6 +271,7 @@ public class Stax2ProtoBuf {
                 builder.setSize(readInt(reader));
             }else{
                 System.out.println("unable to read Upload sub element "+ name);
+                break;
             }
         }
         return builder.build();
@@ -292,6 +298,7 @@ public class Stax2ProtoBuf {
                 builder.setThreadType(readString(reader));
             }else{
                 System.out.println("unable to read DiscussionThreadingInfo sub element "+ name);
+                break;
             }
         }
         return builder.build();
@@ -312,6 +319,7 @@ public class Stax2ProtoBuf {
                 builder.setNamespaces(readNamespaces(reader));
             }else{
                 System.out.println("unable to read SiteInfo sub element "+ name);
+                break;
             }
         }
         return builder.build();
@@ -324,6 +332,7 @@ public class Stax2ProtoBuf {
                 builder.addNamespace(readNamespace(reader));
             }else{
                 System.out.println("unable to read Namespaces sub element "+ name);
+                break;
             }
         }
         return builder.build();
@@ -335,13 +344,43 @@ public class Stax2ProtoBuf {
         builder.setNamespace(readString(reader));
         return builder.build();
     }
-    private LogItem readLogItem(XMLStreamReader reader){
+    private LogItem readLogItem(XMLStreamReader reader) throws XMLStreamException{
         LogItem.Builder builder = LogItem.newBuilder();
+        while(nextElement(reader) == START){
+            String name = reader.getLocalName();
+            if(name.equals("id")){
+                builder.setId(readInt(reader));
+            }else if(name.equals("timestamp")){
+                builder.setTimestamp(readTimestamp(reader));
+            }else if(name.equals("contributor")){
+                builder.setContributor(readContributor(reader));
+            }else if(name.equals("comment")){
+                builder.setComment(readComment(reader));
+            }else if(name.equals("type")){
+                builder.setType(readString(reader));
+            }else if(name.equals("action")){
+                builder.setAction(readString(reader));
+            }else if(name.equals("text")){
+                builder.setText(readLogText(reader));
+            }else if(name.equals("logtitle")){
+                builder.setLogTitle(readString(reader));
+            }else if(name.equals("params")){
+                builder.setParams(readString(reader));
+            }else{
+                System.out.println("unable to read LogItem sub element "+ name);
+                break;
+            }
+        }
         return builder.build();
         
     }
-    
-
+    private LogText readLogText(XMLStreamReader reader) throws XMLStreamException{
+        LogText.Builder builder = LogText.newBuilder();
+        builder.setDeleted(hasAttr(reader, "deleted"));
+        builder.setLogText(readString(reader));
+        return builder.build();
+        
+    }
     public static MediaWiki pagesFromFile(FileInputStream fis) throws XMLStreamException, FactoryConfigurationError {
         //        BigFileInMemory bf = new BigFileInMemory(fis.getChannel().size());
         //        bf.read(fis);
