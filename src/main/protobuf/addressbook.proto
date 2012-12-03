@@ -35,7 +35,7 @@ message SiteInfo{
     optional string siteName = 1;
     optional string base = 2;
     optional string generator = 3;
-    optional Case case = 4;
+    optional string case = 4; // was Case
     optional Namespaces namespaces = 5;
 }
 /*
@@ -81,7 +81,7 @@ message Namespaces{
 message Namespace{
     optional string namespace = 1;
     optional int32 key = 2;
-    optional Case case = 3;
+    optional string case = 3;
 }
 /*
 <complexType name="PageType">
@@ -112,13 +112,15 @@ message Page{
     optional int32 id = 4;
     optional Redirect redirect = 5;
     optional string restrictions = 6;
-    repeated RevisionUpload revisionupload = 1;
+    repeated RevisionUpload revisionUpload = 1;
     optional DiscussionThreadingInfo discussionThreadingInfo = 7;
 }
 /*
 
 */
 message Redirect{
+    optional string redirect = 1;
+    optional string title = 2;
 }
 /*
     choice from inside Page.

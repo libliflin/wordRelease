@@ -1159,9 +1159,9 @@ public final class MediaWikiExportV07Protos {
     boolean hasGenerator();
     String getGenerator();
     
-    // optional .tutorial.Case case = 4;
+    // optional string case = 4;
     boolean hasCase();
-    org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case getCase();
+    String getCase();
     
     // optional .tutorial.Namespaces namespaces = 5;
     boolean hasNamespaces();
@@ -1293,14 +1293,36 @@ public final class MediaWikiExportV07Protos {
       }
     }
     
-    // optional .tutorial.Case case = 4;
+    // optional string case = 4;
     public static final int CASE_FIELD_NUMBER = 4;
-    private org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case case_;
+    private java.lang.Object case_;
     public boolean hasCase() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-    public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case getCase() {
-      return case_;
+    public String getCase() {
+      java.lang.Object ref = case_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          case_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getCaseBytes() {
+      java.lang.Object ref = case_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        case_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
     
     // optional .tutorial.Namespaces namespaces = 5;
@@ -1320,7 +1342,7 @@ public final class MediaWikiExportV07Protos {
       siteName_ = "";
       base_ = "";
       generator_ = "";
-      case_ = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case.FIRST_LETTER;
+      case_ = "";
       namespaces_ = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Namespaces.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
@@ -1345,7 +1367,7 @@ public final class MediaWikiExportV07Protos {
         output.writeBytes(3, getGeneratorBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeEnum(4, case_.getNumber());
+        output.writeBytes(4, getCaseBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeMessage(5, namespaces_);
@@ -1373,7 +1395,7 @@ public final class MediaWikiExportV07Protos {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(4, case_.getNumber());
+          .computeBytesSize(4, getCaseBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1510,7 +1532,7 @@ public final class MediaWikiExportV07Protos {
         bitField0_ = (bitField0_ & ~0x00000002);
         generator_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        case_ = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case.FIRST_LETTER;
+        case_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
         if (namespacesBuilder_ == null) {
           namespaces_ = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Namespaces.getDefaultInstance();
@@ -1657,15 +1679,9 @@ public final class MediaWikiExportV07Protos {
               generator_ = input.readBytes();
               break;
             }
-            case 32: {
-              int rawValue = input.readEnum();
-              org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case value = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(4, rawValue);
-              } else {
-                bitField0_ |= 0x00000008;
-                case_ = value;
-              }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              case_ = input.readBytes();
               break;
             }
             case 42: {
@@ -1791,28 +1807,40 @@ public final class MediaWikiExportV07Protos {
         onChanged();
       }
       
-      // optional .tutorial.Case case = 4;
-      private org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case case_ = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case.FIRST_LETTER;
+      // optional string case = 4;
+      private java.lang.Object case_ = "";
       public boolean hasCase() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-      public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case getCase() {
-        return case_;
-      }
-      public Builder setCase(org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case value) {
-        if (value == null) {
-          throw new NullPointerException();
+      public String getCase() {
+        java.lang.Object ref = case_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          case_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-        bitField0_ |= 0x00000008;
+      }
+      public Builder setCase(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
         case_ = value;
         onChanged();
         return this;
       }
       public Builder clearCase() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        case_ = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case.FIRST_LETTER;
+        case_ = getDefaultInstance().getCase();
         onChanged();
         return this;
+      }
+      void setCase(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000008;
+        case_ = value;
+        onChanged();
       }
       
       // optional .tutorial.Namespaces namespaces = 5;
@@ -2478,9 +2506,9 @@ public final class MediaWikiExportV07Protos {
     boolean hasKey();
     int getKey();
     
-    // optional .tutorial.Case case = 3;
+    // optional string case = 3;
     boolean hasCase();
-    org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case getCase();
+    String getCase();
   }
   public static final class Namespace extends
       com.google.protobuf.GeneratedMessage
@@ -2553,20 +2581,42 @@ public final class MediaWikiExportV07Protos {
       return key_;
     }
     
-    // optional .tutorial.Case case = 3;
+    // optional string case = 3;
     public static final int CASE_FIELD_NUMBER = 3;
-    private org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case case_;
+    private java.lang.Object case_;
     public boolean hasCase() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-    public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case getCase() {
-      return case_;
+    public String getCase() {
+      java.lang.Object ref = case_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          case_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getCaseBytes() {
+      java.lang.Object ref = case_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        case_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
     
     private void initFields() {
       namespace_ = "";
       key_ = 0;
-      case_ = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case.FIRST_LETTER;
+      case_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -2587,7 +2637,7 @@ public final class MediaWikiExportV07Protos {
         output.writeInt32(2, key_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeEnum(3, case_.getNumber());
+        output.writeBytes(3, getCaseBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -2608,7 +2658,7 @@ public final class MediaWikiExportV07Protos {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, case_.getNumber());
+          .computeBytesSize(3, getCaseBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -2738,7 +2788,7 @@ public final class MediaWikiExportV07Protos {
         bitField0_ = (bitField0_ & ~0x00000001);
         key_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        case_ = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case.FIRST_LETTER;
+        case_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -2856,15 +2906,9 @@ public final class MediaWikiExportV07Protos {
               key_ = input.readInt32();
               break;
             }
-            case 24: {
-              int rawValue = input.readEnum();
-              org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case value = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(3, rawValue);
-              } else {
-                bitField0_ |= 0x00000004;
-                case_ = value;
-              }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              case_ = input.readBytes();
               break;
             }
           }
@@ -2930,28 +2974,40 @@ public final class MediaWikiExportV07Protos {
         return this;
       }
       
-      // optional .tutorial.Case case = 3;
-      private org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case case_ = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case.FIRST_LETTER;
+      // optional string case = 3;
+      private java.lang.Object case_ = "";
       public boolean hasCase() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-      public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case getCase() {
-        return case_;
-      }
-      public Builder setCase(org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case value) {
-        if (value == null) {
-          throw new NullPointerException();
+      public String getCase() {
+        java.lang.Object ref = case_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          case_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-        bitField0_ |= 0x00000004;
+      }
+      public Builder setCase(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         case_ = value;
         onChanged();
         return this;
       }
       public Builder clearCase() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        case_ = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Case.FIRST_LETTER;
+        case_ = getDefaultInstance().getCase();
         onChanged();
         return this;
+      }
+      void setCase(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000004;
+        case_ = value;
+        onChanged();
       }
       
       // @@protoc_insertion_point(builder_scope:tutorial.Namespace)
@@ -2989,14 +3045,14 @@ public final class MediaWikiExportV07Protos {
     boolean hasRestrictions();
     String getRestrictions();
     
-    // repeated .tutorial.RevisionUpload revisionupload = 1;
+    // repeated .tutorial.RevisionUpload revisionUpload = 1;
     java.util.List<org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload> 
-        getRevisionuploadList();
-    org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload getRevisionupload(int index);
-    int getRevisionuploadCount();
+        getRevisionUploadList();
+    org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload getRevisionUpload(int index);
+    int getRevisionUploadCount();
     java.util.List<? extends org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUploadOrBuilder> 
-        getRevisionuploadOrBuilderList();
-    org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUploadOrBuilder getRevisionuploadOrBuilder(
+        getRevisionUploadOrBuilderList();
+    org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUploadOrBuilder getRevisionUploadOrBuilder(
         int index);
     
     // optional .tutorial.DiscussionThreadingInfo discussionThreadingInfo = 7;
@@ -3130,25 +3186,25 @@ public final class MediaWikiExportV07Protos {
       }
     }
     
-    // repeated .tutorial.RevisionUpload revisionupload = 1;
+    // repeated .tutorial.RevisionUpload revisionUpload = 1;
     public static final int REVISIONUPLOAD_FIELD_NUMBER = 1;
-    private java.util.List<org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload> revisionupload_;
-    public java.util.List<org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload> getRevisionuploadList() {
-      return revisionupload_;
+    private java.util.List<org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload> revisionUpload_;
+    public java.util.List<org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload> getRevisionUploadList() {
+      return revisionUpload_;
     }
     public java.util.List<? extends org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUploadOrBuilder> 
-        getRevisionuploadOrBuilderList() {
-      return revisionupload_;
+        getRevisionUploadOrBuilderList() {
+      return revisionUpload_;
     }
-    public int getRevisionuploadCount() {
-      return revisionupload_.size();
+    public int getRevisionUploadCount() {
+      return revisionUpload_.size();
     }
-    public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload getRevisionupload(int index) {
-      return revisionupload_.get(index);
+    public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload getRevisionUpload(int index) {
+      return revisionUpload_.get(index);
     }
-    public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUploadOrBuilder getRevisionuploadOrBuilder(
+    public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUploadOrBuilder getRevisionUploadOrBuilder(
         int index) {
-      return revisionupload_.get(index);
+      return revisionUpload_.get(index);
     }
     
     // optional .tutorial.DiscussionThreadingInfo discussionThreadingInfo = 7;
@@ -3170,7 +3226,7 @@ public final class MediaWikiExportV07Protos {
       id_ = 0;
       redirect_ = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Redirect.getDefaultInstance();
       restrictions_ = "";
-      revisionupload_ = java.util.Collections.emptyList();
+      revisionUpload_ = java.util.Collections.emptyList();
       discussionThreadingInfo_ = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.DiscussionThreadingInfo.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
@@ -3185,8 +3241,8 @@ public final class MediaWikiExportV07Protos {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      for (int i = 0; i < revisionupload_.size(); i++) {
-        output.writeMessage(1, revisionupload_.get(i));
+      for (int i = 0; i < revisionUpload_.size(); i++) {
+        output.writeMessage(1, revisionUpload_.get(i));
       }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(2, getTitleBytes());
@@ -3215,9 +3271,9 @@ public final class MediaWikiExportV07Protos {
       if (size != -1) return size;
     
       size = 0;
-      for (int i = 0; i < revisionupload_.size(); i++) {
+      for (int i = 0; i < revisionUpload_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, revisionupload_.get(i));
+          .computeMessageSize(1, revisionUpload_.get(i));
       }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -3360,7 +3416,7 @@ public final class MediaWikiExportV07Protos {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getRedirectFieldBuilder();
-          getRevisionuploadFieldBuilder();
+          getRevisionUploadFieldBuilder();
           getDiscussionThreadingInfoFieldBuilder();
         }
       }
@@ -3384,11 +3440,11 @@ public final class MediaWikiExportV07Protos {
         bitField0_ = (bitField0_ & ~0x00000008);
         restrictions_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
-        if (revisionuploadBuilder_ == null) {
-          revisionupload_ = java.util.Collections.emptyList();
+        if (revisionUploadBuilder_ == null) {
+          revisionUpload_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000020);
         } else {
-          revisionuploadBuilder_.clear();
+          revisionUploadBuilder_.clear();
         }
         if (discussionThreadingInfoBuilder_ == null) {
           discussionThreadingInfo_ = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.DiscussionThreadingInfo.getDefaultInstance();
@@ -3458,14 +3514,14 @@ public final class MediaWikiExportV07Protos {
           to_bitField0_ |= 0x00000010;
         }
         result.restrictions_ = restrictions_;
-        if (revisionuploadBuilder_ == null) {
+        if (revisionUploadBuilder_ == null) {
           if (((bitField0_ & 0x00000020) == 0x00000020)) {
-            revisionupload_ = java.util.Collections.unmodifiableList(revisionupload_);
+            revisionUpload_ = java.util.Collections.unmodifiableList(revisionUpload_);
             bitField0_ = (bitField0_ & ~0x00000020);
           }
-          result.revisionupload_ = revisionupload_;
+          result.revisionUpload_ = revisionUpload_;
         } else {
-          result.revisionupload_ = revisionuploadBuilder_.build();
+          result.revisionUpload_ = revisionUploadBuilder_.build();
         }
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000020;
@@ -3506,29 +3562,29 @@ public final class MediaWikiExportV07Protos {
         if (other.hasRestrictions()) {
           setRestrictions(other.getRestrictions());
         }
-        if (revisionuploadBuilder_ == null) {
-          if (!other.revisionupload_.isEmpty()) {
-            if (revisionupload_.isEmpty()) {
-              revisionupload_ = other.revisionupload_;
+        if (revisionUploadBuilder_ == null) {
+          if (!other.revisionUpload_.isEmpty()) {
+            if (revisionUpload_.isEmpty()) {
+              revisionUpload_ = other.revisionUpload_;
               bitField0_ = (bitField0_ & ~0x00000020);
             } else {
-              ensureRevisionuploadIsMutable();
-              revisionupload_.addAll(other.revisionupload_);
+              ensureRevisionUploadIsMutable();
+              revisionUpload_.addAll(other.revisionUpload_);
             }
             onChanged();
           }
         } else {
-          if (!other.revisionupload_.isEmpty()) {
-            if (revisionuploadBuilder_.isEmpty()) {
-              revisionuploadBuilder_.dispose();
-              revisionuploadBuilder_ = null;
-              revisionupload_ = other.revisionupload_;
+          if (!other.revisionUpload_.isEmpty()) {
+            if (revisionUploadBuilder_.isEmpty()) {
+              revisionUploadBuilder_.dispose();
+              revisionUploadBuilder_ = null;
+              revisionUpload_ = other.revisionUpload_;
               bitField0_ = (bitField0_ & ~0x00000020);
-              revisionuploadBuilder_ = 
+              revisionUploadBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getRevisionuploadFieldBuilder() : null;
+                   getRevisionUploadFieldBuilder() : null;
             } else {
-              revisionuploadBuilder_.addAllMessages(other.revisionupload_);
+              revisionUploadBuilder_.addAllMessages(other.revisionUpload_);
             }
           }
         }
@@ -3569,7 +3625,7 @@ public final class MediaWikiExportV07Protos {
             case 10: {
               org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder subBuilder = org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.newBuilder();
               input.readMessage(subBuilder, extensionRegistry);
-              addRevisionupload(subBuilder.buildPartial());
+              addRevisionUpload(subBuilder.buildPartial());
               break;
             }
             case 18: {
@@ -3820,190 +3876,190 @@ public final class MediaWikiExportV07Protos {
         onChanged();
       }
       
-      // repeated .tutorial.RevisionUpload revisionupload = 1;
-      private java.util.List<org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload> revisionupload_ =
+      // repeated .tutorial.RevisionUpload revisionUpload = 1;
+      private java.util.List<org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload> revisionUpload_ =
         java.util.Collections.emptyList();
-      private void ensureRevisionuploadIsMutable() {
+      private void ensureRevisionUploadIsMutable() {
         if (!((bitField0_ & 0x00000020) == 0x00000020)) {
-          revisionupload_ = new java.util.ArrayList<org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload>(revisionupload_);
+          revisionUpload_ = new java.util.ArrayList<org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload>(revisionUpload_);
           bitField0_ |= 0x00000020;
          }
       }
       
       private com.google.protobuf.RepeatedFieldBuilder<
-          org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload, org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder, org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUploadOrBuilder> revisionuploadBuilder_;
+          org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload, org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder, org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUploadOrBuilder> revisionUploadBuilder_;
       
-      public java.util.List<org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload> getRevisionuploadList() {
-        if (revisionuploadBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(revisionupload_);
+      public java.util.List<org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload> getRevisionUploadList() {
+        if (revisionUploadBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(revisionUpload_);
         } else {
-          return revisionuploadBuilder_.getMessageList();
+          return revisionUploadBuilder_.getMessageList();
         }
       }
-      public int getRevisionuploadCount() {
-        if (revisionuploadBuilder_ == null) {
-          return revisionupload_.size();
+      public int getRevisionUploadCount() {
+        if (revisionUploadBuilder_ == null) {
+          return revisionUpload_.size();
         } else {
-          return revisionuploadBuilder_.getCount();
+          return revisionUploadBuilder_.getCount();
         }
       }
-      public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload getRevisionupload(int index) {
-        if (revisionuploadBuilder_ == null) {
-          return revisionupload_.get(index);
+      public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload getRevisionUpload(int index) {
+        if (revisionUploadBuilder_ == null) {
+          return revisionUpload_.get(index);
         } else {
-          return revisionuploadBuilder_.getMessage(index);
+          return revisionUploadBuilder_.getMessage(index);
         }
       }
-      public Builder setRevisionupload(
+      public Builder setRevisionUpload(
           int index, org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload value) {
-        if (revisionuploadBuilder_ == null) {
+        if (revisionUploadBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureRevisionuploadIsMutable();
-          revisionupload_.set(index, value);
+          ensureRevisionUploadIsMutable();
+          revisionUpload_.set(index, value);
           onChanged();
         } else {
-          revisionuploadBuilder_.setMessage(index, value);
+          revisionUploadBuilder_.setMessage(index, value);
         }
         return this;
       }
-      public Builder setRevisionupload(
+      public Builder setRevisionUpload(
           int index, org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder builderForValue) {
-        if (revisionuploadBuilder_ == null) {
-          ensureRevisionuploadIsMutable();
-          revisionupload_.set(index, builderForValue.build());
+        if (revisionUploadBuilder_ == null) {
+          ensureRevisionUploadIsMutable();
+          revisionUpload_.set(index, builderForValue.build());
           onChanged();
         } else {
-          revisionuploadBuilder_.setMessage(index, builderForValue.build());
+          revisionUploadBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
-      public Builder addRevisionupload(org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload value) {
-        if (revisionuploadBuilder_ == null) {
+      public Builder addRevisionUpload(org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload value) {
+        if (revisionUploadBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureRevisionuploadIsMutable();
-          revisionupload_.add(value);
+          ensureRevisionUploadIsMutable();
+          revisionUpload_.add(value);
           onChanged();
         } else {
-          revisionuploadBuilder_.addMessage(value);
+          revisionUploadBuilder_.addMessage(value);
         }
         return this;
       }
-      public Builder addRevisionupload(
+      public Builder addRevisionUpload(
           int index, org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload value) {
-        if (revisionuploadBuilder_ == null) {
+        if (revisionUploadBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureRevisionuploadIsMutable();
-          revisionupload_.add(index, value);
+          ensureRevisionUploadIsMutable();
+          revisionUpload_.add(index, value);
           onChanged();
         } else {
-          revisionuploadBuilder_.addMessage(index, value);
+          revisionUploadBuilder_.addMessage(index, value);
         }
         return this;
       }
-      public Builder addRevisionupload(
+      public Builder addRevisionUpload(
           org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder builderForValue) {
-        if (revisionuploadBuilder_ == null) {
-          ensureRevisionuploadIsMutable();
-          revisionupload_.add(builderForValue.build());
+        if (revisionUploadBuilder_ == null) {
+          ensureRevisionUploadIsMutable();
+          revisionUpload_.add(builderForValue.build());
           onChanged();
         } else {
-          revisionuploadBuilder_.addMessage(builderForValue.build());
+          revisionUploadBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
-      public Builder addRevisionupload(
+      public Builder addRevisionUpload(
           int index, org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder builderForValue) {
-        if (revisionuploadBuilder_ == null) {
-          ensureRevisionuploadIsMutable();
-          revisionupload_.add(index, builderForValue.build());
+        if (revisionUploadBuilder_ == null) {
+          ensureRevisionUploadIsMutable();
+          revisionUpload_.add(index, builderForValue.build());
           onChanged();
         } else {
-          revisionuploadBuilder_.addMessage(index, builderForValue.build());
+          revisionUploadBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
-      public Builder addAllRevisionupload(
+      public Builder addAllRevisionUpload(
           java.lang.Iterable<? extends org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload> values) {
-        if (revisionuploadBuilder_ == null) {
-          ensureRevisionuploadIsMutable();
-          super.addAll(values, revisionupload_);
+        if (revisionUploadBuilder_ == null) {
+          ensureRevisionUploadIsMutable();
+          super.addAll(values, revisionUpload_);
           onChanged();
         } else {
-          revisionuploadBuilder_.addAllMessages(values);
+          revisionUploadBuilder_.addAllMessages(values);
         }
         return this;
       }
-      public Builder clearRevisionupload() {
-        if (revisionuploadBuilder_ == null) {
-          revisionupload_ = java.util.Collections.emptyList();
+      public Builder clearRevisionUpload() {
+        if (revisionUploadBuilder_ == null) {
+          revisionUpload_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000020);
           onChanged();
         } else {
-          revisionuploadBuilder_.clear();
+          revisionUploadBuilder_.clear();
         }
         return this;
       }
-      public Builder removeRevisionupload(int index) {
-        if (revisionuploadBuilder_ == null) {
-          ensureRevisionuploadIsMutable();
-          revisionupload_.remove(index);
+      public Builder removeRevisionUpload(int index) {
+        if (revisionUploadBuilder_ == null) {
+          ensureRevisionUploadIsMutable();
+          revisionUpload_.remove(index);
           onChanged();
         } else {
-          revisionuploadBuilder_.remove(index);
+          revisionUploadBuilder_.remove(index);
         }
         return this;
       }
-      public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder getRevisionuploadBuilder(
+      public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder getRevisionUploadBuilder(
           int index) {
-        return getRevisionuploadFieldBuilder().getBuilder(index);
+        return getRevisionUploadFieldBuilder().getBuilder(index);
       }
-      public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUploadOrBuilder getRevisionuploadOrBuilder(
+      public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUploadOrBuilder getRevisionUploadOrBuilder(
           int index) {
-        if (revisionuploadBuilder_ == null) {
-          return revisionupload_.get(index);  } else {
-          return revisionuploadBuilder_.getMessageOrBuilder(index);
+        if (revisionUploadBuilder_ == null) {
+          return revisionUpload_.get(index);  } else {
+          return revisionUploadBuilder_.getMessageOrBuilder(index);
         }
       }
       public java.util.List<? extends org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUploadOrBuilder> 
-           getRevisionuploadOrBuilderList() {
-        if (revisionuploadBuilder_ != null) {
-          return revisionuploadBuilder_.getMessageOrBuilderList();
+           getRevisionUploadOrBuilderList() {
+        if (revisionUploadBuilder_ != null) {
+          return revisionUploadBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(revisionupload_);
+          return java.util.Collections.unmodifiableList(revisionUpload_);
         }
       }
-      public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder addRevisionuploadBuilder() {
-        return getRevisionuploadFieldBuilder().addBuilder(
+      public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder addRevisionUploadBuilder() {
+        return getRevisionUploadFieldBuilder().addBuilder(
             org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.getDefaultInstance());
       }
-      public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder addRevisionuploadBuilder(
+      public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder addRevisionUploadBuilder(
           int index) {
-        return getRevisionuploadFieldBuilder().addBuilder(
+        return getRevisionUploadFieldBuilder().addBuilder(
             index, org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.getDefaultInstance());
       }
       public java.util.List<org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder> 
-           getRevisionuploadBuilderList() {
-        return getRevisionuploadFieldBuilder().getBuilderList();
+           getRevisionUploadBuilderList() {
+        return getRevisionUploadFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
           org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload, org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder, org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUploadOrBuilder> 
-          getRevisionuploadFieldBuilder() {
-        if (revisionuploadBuilder_ == null) {
-          revisionuploadBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          getRevisionUploadFieldBuilder() {
+        if (revisionUploadBuilder_ == null) {
+          revisionUploadBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload, org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUpload.Builder, org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.RevisionUploadOrBuilder>(
-                  revisionupload_,
+                  revisionUpload_,
                   ((bitField0_ & 0x00000020) == 0x00000020),
                   getParentForChildren(),
                   isClean());
-          revisionupload_ = null;
+          revisionUpload_ = null;
         }
-        return revisionuploadBuilder_;
+        return revisionUploadBuilder_;
       }
       
       // optional .tutorial.DiscussionThreadingInfo discussionThreadingInfo = 7;
@@ -4109,6 +4165,14 @@ public final class MediaWikiExportV07Protos {
   
   public interface RedirectOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
+    
+    // optional string redirect = 1;
+    boolean hasRedirect();
+    String getRedirect();
+    
+    // optional string title = 2;
+    boolean hasTitle();
+    String getTitle();
   }
   public static final class Redirect extends
       com.google.protobuf.GeneratedMessage
@@ -4138,7 +4202,74 @@ public final class MediaWikiExportV07Protos {
       return org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.internal_static_tutorial_Redirect_fieldAccessorTable;
     }
     
+    private int bitField0_;
+    // optional string redirect = 1;
+    public static final int REDIRECT_FIELD_NUMBER = 1;
+    private java.lang.Object redirect_;
+    public boolean hasRedirect() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public String getRedirect() {
+      java.lang.Object ref = redirect_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          redirect_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getRedirectBytes() {
+      java.lang.Object ref = redirect_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        redirect_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string title = 2;
+    public static final int TITLE_FIELD_NUMBER = 2;
+    private java.lang.Object title_;
+    public boolean hasTitle() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public String getTitle() {
+      java.lang.Object ref = title_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          title_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getTitleBytes() {
+      java.lang.Object ref = title_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        title_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
     private void initFields() {
+      redirect_ = "";
+      title_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -4152,6 +4283,12 @@ public final class MediaWikiExportV07Protos {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getRedirectBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getTitleBytes());
+      }
       getUnknownFields().writeTo(output);
     }
     
@@ -4161,6 +4298,14 @@ public final class MediaWikiExportV07Protos {
       if (size != -1) return size;
     
       size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getRedirectBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getTitleBytes());
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -4285,6 +4430,10 @@ public final class MediaWikiExportV07Protos {
       
       public Builder clear() {
         super.clear();
+        redirect_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        title_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       
@@ -4321,6 +4470,17 @@ public final class MediaWikiExportV07Protos {
       
       public org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Redirect buildPartial() {
         org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Redirect result = new org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Redirect(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.redirect_ = redirect_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.title_ = title_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -4336,6 +4496,12 @@ public final class MediaWikiExportV07Protos {
       
       public Builder mergeFrom(org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Redirect other) {
         if (other == org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Redirect.getDefaultInstance()) return this;
+        if (other.hasRedirect()) {
+          setRedirect(other.getRedirect());
+        }
+        if (other.hasTitle()) {
+          setTitle(other.getTitle());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -4367,10 +4533,93 @@ public final class MediaWikiExportV07Protos {
               }
               break;
             }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              redirect_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              title_ = input.readBytes();
+              break;
+            }
           }
         }
       }
       
+      private int bitField0_;
+      
+      // optional string redirect = 1;
+      private java.lang.Object redirect_ = "";
+      public boolean hasRedirect() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      public String getRedirect() {
+        java.lang.Object ref = redirect_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          redirect_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setRedirect(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        redirect_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearRedirect() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        redirect_ = getDefaultInstance().getRedirect();
+        onChanged();
+        return this;
+      }
+      void setRedirect(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
+        redirect_ = value;
+        onChanged();
+      }
+      
+      // optional string title = 2;
+      private java.lang.Object title_ = "";
+      public boolean hasTitle() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      public String getTitle() {
+        java.lang.Object ref = title_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          title_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setTitle(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        title_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearTitle() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        title_ = getDefaultInstance().getTitle();
+        onChanged();
+        return this;
+      }
+      void setTitle(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
+        title_ = value;
+        onChanged();
+      }
       
       // @@protoc_insertion_point(builder_scope:tutorial.Redirect)
     }
@@ -11005,19 +11254,19 @@ public final class MediaWikiExportV07Protos {
       "iki\022\017\n\007version\030\003 \001(\t\022$\n\010siteInfo\030\004 \001(\0132\022" +
       ".tutorial.SiteInfo\022\034\n\004page\030\001 \003(\0132\016.tutor" +
       "ial.Page\022\"\n\007logItem\030\002 \003(\0132\021.tutorial.Log" +
-      "Item\"\205\001\n\010SiteInfo\022\020\n\010siteName\030\001 \001(\t\022\014\n\004b" +
-      "ase\030\002 \001(\t\022\021\n\tgenerator\030\003 \001(\t\022\034\n\004case\030\004 \001" +
-      "(\0162\016.tutorial.Case\022(\n\nnamespaces\030\005 \001(\0132\024" +
-      ".tutorial.Namespaces\"4\n\nNamespaces\022&\n\tna" +
-      "mespace\030\001 \003(\0132\023.tutorial.Namespace\"I\n\tNa" +
-      "mespace\022\021\n\tnamespace\030\001 \001(\t\022\013\n\003key\030\002 \001(\005\022",
-      "\034\n\004case\030\003 \001(\0162\016.tutorial.Case\"\337\001\n\004Page\022\r" +
-      "\n\005title\030\002 \001(\t\022\n\n\002ns\030\003 \001(\005\022\n\n\002id\030\004 \001(\005\022$\n" +
-      "\010redirect\030\005 \001(\0132\022.tutorial.Redirect\022\024\n\014r" +
-      "estrictions\030\006 \001(\t\0220\n\016revisionupload\030\001 \003(" +
-      "\0132\030.tutorial.RevisionUpload\022B\n\027discussio" +
-      "nThreadingInfo\030\007 \001(\0132!.tutorial.Discussi" +
-      "onThreadingInfo\"\n\n\010Redirect\"X\n\016RevisionU" +
+      "Item\"u\n\010SiteInfo\022\020\n\010siteName\030\001 \001(\t\022\014\n\004ba" +
+      "se\030\002 \001(\t\022\021\n\tgenerator\030\003 \001(\t\022\014\n\004case\030\004 \001(" +
+      "\t\022(\n\nnamespaces\030\005 \001(\0132\024.tutorial.Namespa" +
+      "ces\"4\n\nNamespaces\022&\n\tnamespace\030\001 \003(\0132\023.t" +
+      "utorial.Namespace\"9\n\tNamespace\022\021\n\tnamesp" +
+      "ace\030\001 \001(\t\022\013\n\003key\030\002 \001(\005\022\014\n\004case\030\003 \001(\t\"\337\001\n",
+      "\004Page\022\r\n\005title\030\002 \001(\t\022\n\n\002ns\030\003 \001(\005\022\n\n\002id\030\004" +
+      " \001(\005\022$\n\010redirect\030\005 \001(\0132\022.tutorial.Redire" +
+      "ct\022\024\n\014restrictions\030\006 \001(\t\0220\n\016revisionUplo" +
+      "ad\030\001 \003(\0132\030.tutorial.RevisionUpload\022B\n\027di" +
+      "scussionThreadingInfo\030\007 \001(\0132!.tutorial.D" +
+      "iscussionThreadingInfo\"+\n\010Redirect\022\020\n\010re" +
+      "direct\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\"X\n\016RevisionU" +
       "pload\022$\n\010revision\030\001 \001(\0132\022.tutorial.Revis" +
       "ion\022 \n\006upload\030\002 \001(\0132\020.tutorial.Upload\"\306\001" +
       "\n\010Revision\022\n\n\002id\030\001 \001(\005\022\020\n\010parentid\030\002 \001(\005",
@@ -11092,7 +11341,7 @@ public final class MediaWikiExportV07Protos {
           internal_static_tutorial_Page_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_tutorial_Page_descriptor,
-              new java.lang.String[] { "Title", "Ns", "Id", "Redirect", "Restrictions", "Revisionupload", "DiscussionThreadingInfo", },
+              new java.lang.String[] { "Title", "Ns", "Id", "Redirect", "Restrictions", "RevisionUpload", "DiscussionThreadingInfo", },
               org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Page.class,
               org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Page.Builder.class);
           internal_static_tutorial_Redirect_descriptor =
@@ -11100,7 +11349,7 @@ public final class MediaWikiExportV07Protos {
           internal_static_tutorial_Redirect_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_tutorial_Redirect_descriptor,
-              new java.lang.String[] { },
+              new java.lang.String[] { "Redirect", "Title", },
               org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Redirect.class,
               org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.Redirect.Builder.class);
           internal_static_tutorial_RevisionUpload_descriptor =
