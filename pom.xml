@@ -12,6 +12,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mediawiki2protobuf>org.libliflin.games.wordrelease.mediawikiexport07.proto.Stax2ProtoBuf</mediawiki2protobuf>
+        <mediawiki2stuff>org.libliflin.games.wordrelease.Wikt2EnglishPage</mediawiki2stuff>
+        <mediawikiprotobufInspector>org.libliflin.games.wordrelease.mediawikiexport07.proto.Inspector</mediawikiprotobufInspector>
+        <my.exec.class>${mediawikiprotobufInspector}</my.exec.class>
     </properties>
 
     <dependencies>
@@ -38,6 +42,11 @@
             <version>2.4.1</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+            <version>0.8.0</version>
+        </dependency>
+        <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
@@ -46,6 +55,30 @@
     
     <build>
         <plugins>
+             <plugin>
+                <groupId>org.apache.thrift.tools</groupId>
+                <artifactId>maven-thrift-plugin</artifactId>
+                <version>0.1.10</version>
+                <configuration>
+                    <thriftExecutable>C:\ProgramFiles\bin\thrift-0.8.0</thriftExecutable>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>thrift-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>thrift-test-sources</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>com.github.igor-petruk.protobuf</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
@@ -58,6 +91,34 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>-Xmx13G</argument>
+                        <argument>-classpath</argument>
+                        <classpath />
+                        <argument>${my.exec.class}</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+    
+    
+    <pluginRepositories>
+        <pluginRepository>
+            <id>dtrott</id>
+            <url>http://maven.davidtrott.com/repository</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>

@@ -86,22 +86,15 @@ message Namespace{
 /*
 <complexType name="PageType">
 <sequence>
-<!-- Title in text form. (Using spaces, not underscores; with namespace ) -->
 <element name="title" type="string"/>
-<!-- Namespace in canonical form -->
 <element name="ns" type="nonNegativeInteger"/>
-<!-- optional page ID number -->
 <element name="id" type="positiveInteger"/>
-<!-- flag if the current revision is a redirect -->
 <element name="redirect" type="mw:RedirectType" minOccurs="0" maxOccurs="1"/>
-<!-- comma-separated list of string tokens, if present -->
 <element name="restrictions" type="string" minOccurs="0"/>
-<!-- Zero or more sets of revision or upload data -->
 <choice minOccurs="0" maxOccurs="unbounded">
 <element name="revision" type="mw:RevisionType"/>
 <element name="upload" type="mw:UploadType"/>
 </choice>
-<!-- Zero or One sets of discussion threading data -->
 <element name="discussionthreadinginfo" minOccurs="0" maxOccurs="1" type="mw:DiscussionThreadingInfo"/>
 </sequence>
 </complexType>
@@ -247,13 +240,15 @@ message Upload{
 */
 message DiscussionThreadingInfo{
     optional string threadSubject = 1;
-    optional int32 threadParent = 2;
-    optional int32 threadAncestor = 3;
+    optional string threadParent = 2;
+    optional string threadAncestor = 3;
     optional string threadPage = 4;
-    optional int32 threadId = 5;
+    optional string threadId = 5;
     optional string threadAuthor = 6;
     optional string threadEditStatus = 7;
     optional string threadType = 8;
+    optional string threadSignature = 9; // for the non xsd DiscussionThreading
+    optional string threadSummaryPage = 10;
 }
 /*
 <complexType name="LogItemType">

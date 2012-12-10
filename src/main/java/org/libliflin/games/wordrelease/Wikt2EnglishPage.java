@@ -29,6 +29,7 @@ public class Wikt2EnglishPage {
     public static final int START_PAGE = 1;
     public static final int END_PAGE = -1;
 
+    //27 seconds to stax through the file turning them into pages.
     public static void main(String[] args) {
         try {
             String url = "file:///C:/enwiktionary-latest-pages-articles.xml.bz2.xml.bz2.xml";
@@ -94,7 +95,7 @@ public class Wikt2EnglishPage {
         FileInputStream fis = new FileInputStream(file);
         Page[] ns0pages = StaxPageParser.pagesFromFile(fis);
 
-        reporter(ns0pages);
+//        reporter(ns0pages);
     }
 
     private static void reporter(Page[] ns0pages) {

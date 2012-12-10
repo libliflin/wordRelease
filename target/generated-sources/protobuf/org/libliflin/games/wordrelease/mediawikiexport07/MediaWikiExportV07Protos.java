@@ -8619,21 +8619,21 @@ public final class MediaWikiExportV07Protos {
     boolean hasThreadSubject();
     String getThreadSubject();
     
-    // optional int32 threadParent = 2;
+    // optional string threadParent = 2;
     boolean hasThreadParent();
-    int getThreadParent();
+    String getThreadParent();
     
-    // optional int32 threadAncestor = 3;
+    // optional string threadAncestor = 3;
     boolean hasThreadAncestor();
-    int getThreadAncestor();
+    String getThreadAncestor();
     
     // optional string threadPage = 4;
     boolean hasThreadPage();
     String getThreadPage();
     
-    // optional int32 threadId = 5;
+    // optional string threadId = 5;
     boolean hasThreadId();
-    int getThreadId();
+    String getThreadId();
     
     // optional string threadAuthor = 6;
     boolean hasThreadAuthor();
@@ -8646,6 +8646,14 @@ public final class MediaWikiExportV07Protos {
     // optional string threadType = 8;
     boolean hasThreadType();
     String getThreadType();
+    
+    // optional string threadSignature = 9;
+    boolean hasThreadSignature();
+    String getThreadSignature();
+    
+    // optional string threadSummaryPage = 10;
+    boolean hasThreadSummaryPage();
+    String getThreadSummaryPage();
   }
   public static final class DiscussionThreadingInfo extends
       com.google.protobuf.GeneratedMessage
@@ -8708,24 +8716,68 @@ public final class MediaWikiExportV07Protos {
       }
     }
     
-    // optional int32 threadParent = 2;
+    // optional string threadParent = 2;
     public static final int THREADPARENT_FIELD_NUMBER = 2;
-    private int threadParent_;
+    private java.lang.Object threadParent_;
     public boolean hasThreadParent() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-    public int getThreadParent() {
-      return threadParent_;
+    public String getThreadParent() {
+      java.lang.Object ref = threadParent_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          threadParent_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getThreadParentBytes() {
+      java.lang.Object ref = threadParent_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        threadParent_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
     
-    // optional int32 threadAncestor = 3;
+    // optional string threadAncestor = 3;
     public static final int THREADANCESTOR_FIELD_NUMBER = 3;
-    private int threadAncestor_;
+    private java.lang.Object threadAncestor_;
     public boolean hasThreadAncestor() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-    public int getThreadAncestor() {
-      return threadAncestor_;
+    public String getThreadAncestor() {
+      java.lang.Object ref = threadAncestor_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          threadAncestor_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getThreadAncestorBytes() {
+      java.lang.Object ref = threadAncestor_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        threadAncestor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
     
     // optional string threadPage = 4;
@@ -8760,14 +8812,36 @@ public final class MediaWikiExportV07Protos {
       }
     }
     
-    // optional int32 threadId = 5;
+    // optional string threadId = 5;
     public static final int THREADID_FIELD_NUMBER = 5;
-    private int threadId_;
+    private java.lang.Object threadId_;
     public boolean hasThreadId() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
-    public int getThreadId() {
-      return threadId_;
+    public String getThreadId() {
+      java.lang.Object ref = threadId_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          threadId_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getThreadIdBytes() {
+      java.lang.Object ref = threadId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        threadId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
     
     // optional string threadAuthor = 6;
@@ -8866,15 +8940,81 @@ public final class MediaWikiExportV07Protos {
       }
     }
     
+    // optional string threadSignature = 9;
+    public static final int THREADSIGNATURE_FIELD_NUMBER = 9;
+    private java.lang.Object threadSignature_;
+    public boolean hasThreadSignature() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    public String getThreadSignature() {
+      java.lang.Object ref = threadSignature_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          threadSignature_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getThreadSignatureBytes() {
+      java.lang.Object ref = threadSignature_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        threadSignature_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string threadSummaryPage = 10;
+    public static final int THREADSUMMARYPAGE_FIELD_NUMBER = 10;
+    private java.lang.Object threadSummaryPage_;
+    public boolean hasThreadSummaryPage() {
+      return ((bitField0_ & 0x00000200) == 0x00000200);
+    }
+    public String getThreadSummaryPage() {
+      java.lang.Object ref = threadSummaryPage_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          threadSummaryPage_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getThreadSummaryPageBytes() {
+      java.lang.Object ref = threadSummaryPage_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        threadSummaryPage_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
     private void initFields() {
       threadSubject_ = "";
-      threadParent_ = 0;
-      threadAncestor_ = 0;
+      threadParent_ = "";
+      threadAncestor_ = "";
       threadPage_ = "";
-      threadId_ = 0;
+      threadId_ = "";
       threadAuthor_ = "";
       threadEditStatus_ = "";
       threadType_ = "";
+      threadSignature_ = "";
+      threadSummaryPage_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -8892,16 +9032,16 @@ public final class MediaWikiExportV07Protos {
         output.writeBytes(1, getThreadSubjectBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, threadParent_);
+        output.writeBytes(2, getThreadParentBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, threadAncestor_);
+        output.writeBytes(3, getThreadAncestorBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeBytes(4, getThreadPageBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeInt32(5, threadId_);
+        output.writeBytes(5, getThreadIdBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeBytes(6, getThreadAuthorBytes());
@@ -8911,6 +9051,12 @@ public final class MediaWikiExportV07Protos {
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         output.writeBytes(8, getThreadTypeBytes());
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeBytes(9, getThreadSignatureBytes());
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        output.writeBytes(10, getThreadSummaryPageBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -8927,11 +9073,11 @@ public final class MediaWikiExportV07Protos {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, threadParent_);
+          .computeBytesSize(2, getThreadParentBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, threadAncestor_);
+          .computeBytesSize(3, getThreadAncestorBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
@@ -8939,7 +9085,7 @@ public final class MediaWikiExportV07Protos {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, threadId_);
+          .computeBytesSize(5, getThreadIdBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
@@ -8952,6 +9098,14 @@ public final class MediaWikiExportV07Protos {
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(8, getThreadTypeBytes());
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(9, getThreadSignatureBytes());
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(10, getThreadSummaryPageBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -9079,13 +9233,13 @@ public final class MediaWikiExportV07Protos {
         super.clear();
         threadSubject_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        threadParent_ = 0;
+        threadParent_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        threadAncestor_ = 0;
+        threadAncestor_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
         threadPage_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        threadId_ = 0;
+        threadId_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
         threadAuthor_ = "";
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -9093,6 +9247,10 @@ public final class MediaWikiExportV07Protos {
         bitField0_ = (bitField0_ & ~0x00000040);
         threadType_ = "";
         bitField0_ = (bitField0_ & ~0x00000080);
+        threadSignature_ = "";
+        bitField0_ = (bitField0_ & ~0x00000100);
+        threadSummaryPage_ = "";
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
       
@@ -9163,6 +9321,14 @@ public final class MediaWikiExportV07Protos {
           to_bitField0_ |= 0x00000080;
         }
         result.threadType_ = threadType_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.threadSignature_ = threadSignature_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000200;
+        }
+        result.threadSummaryPage_ = threadSummaryPage_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -9203,6 +9369,12 @@ public final class MediaWikiExportV07Protos {
         if (other.hasThreadType()) {
           setThreadType(other.getThreadType());
         }
+        if (other.hasThreadSignature()) {
+          setThreadSignature(other.getThreadSignature());
+        }
+        if (other.hasThreadSummaryPage()) {
+          setThreadSummaryPage(other.getThreadSummaryPage());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -9239,14 +9411,14 @@ public final class MediaWikiExportV07Protos {
               threadSubject_ = input.readBytes();
               break;
             }
-            case 16: {
+            case 18: {
               bitField0_ |= 0x00000002;
-              threadParent_ = input.readInt32();
+              threadParent_ = input.readBytes();
               break;
             }
-            case 24: {
+            case 26: {
               bitField0_ |= 0x00000004;
-              threadAncestor_ = input.readInt32();
+              threadAncestor_ = input.readBytes();
               break;
             }
             case 34: {
@@ -9254,9 +9426,9 @@ public final class MediaWikiExportV07Protos {
               threadPage_ = input.readBytes();
               break;
             }
-            case 40: {
+            case 42: {
               bitField0_ |= 0x00000010;
-              threadId_ = input.readInt32();
+              threadId_ = input.readBytes();
               break;
             }
             case 50: {
@@ -9272,6 +9444,16 @@ public final class MediaWikiExportV07Protos {
             case 66: {
               bitField0_ |= 0x00000080;
               threadType_ = input.readBytes();
+              break;
+            }
+            case 74: {
+              bitField0_ |= 0x00000100;
+              threadSignature_ = input.readBytes();
+              break;
+            }
+            case 82: {
+              bitField0_ |= 0x00000200;
+              threadSummaryPage_ = input.readBytes();
               break;
             }
           }
@@ -9316,46 +9498,76 @@ public final class MediaWikiExportV07Protos {
         onChanged();
       }
       
-      // optional int32 threadParent = 2;
-      private int threadParent_ ;
+      // optional string threadParent = 2;
+      private java.lang.Object threadParent_ = "";
       public boolean hasThreadParent() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      public int getThreadParent() {
-        return threadParent_;
+      public String getThreadParent() {
+        java.lang.Object ref = threadParent_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          threadParent_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
       }
-      public Builder setThreadParent(int value) {
-        bitField0_ |= 0x00000002;
+      public Builder setThreadParent(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         threadParent_ = value;
         onChanged();
         return this;
       }
       public Builder clearThreadParent() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        threadParent_ = 0;
+        threadParent_ = getDefaultInstance().getThreadParent();
         onChanged();
         return this;
       }
+      void setThreadParent(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
+        threadParent_ = value;
+        onChanged();
+      }
       
-      // optional int32 threadAncestor = 3;
-      private int threadAncestor_ ;
+      // optional string threadAncestor = 3;
+      private java.lang.Object threadAncestor_ = "";
       public boolean hasThreadAncestor() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-      public int getThreadAncestor() {
-        return threadAncestor_;
+      public String getThreadAncestor() {
+        java.lang.Object ref = threadAncestor_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          threadAncestor_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
       }
-      public Builder setThreadAncestor(int value) {
-        bitField0_ |= 0x00000004;
+      public Builder setThreadAncestor(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         threadAncestor_ = value;
         onChanged();
         return this;
       }
       public Builder clearThreadAncestor() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        threadAncestor_ = 0;
+        threadAncestor_ = getDefaultInstance().getThreadAncestor();
         onChanged();
         return this;
+      }
+      void setThreadAncestor(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000004;
+        threadAncestor_ = value;
+        onChanged();
       }
       
       // optional string threadPage = 4;
@@ -9394,25 +9606,40 @@ public final class MediaWikiExportV07Protos {
         onChanged();
       }
       
-      // optional int32 threadId = 5;
-      private int threadId_ ;
+      // optional string threadId = 5;
+      private java.lang.Object threadId_ = "";
       public boolean hasThreadId() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
-      public int getThreadId() {
-        return threadId_;
+      public String getThreadId() {
+        java.lang.Object ref = threadId_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          threadId_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
       }
-      public Builder setThreadId(int value) {
-        bitField0_ |= 0x00000010;
+      public Builder setThreadId(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
         threadId_ = value;
         onChanged();
         return this;
       }
       public Builder clearThreadId() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        threadId_ = 0;
+        threadId_ = getDefaultInstance().getThreadId();
         onChanged();
         return this;
+      }
+      void setThreadId(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000010;
+        threadId_ = value;
+        onChanged();
       }
       
       // optional string threadAuthor = 6;
@@ -9520,6 +9747,78 @@ public final class MediaWikiExportV07Protos {
       void setThreadType(com.google.protobuf.ByteString value) {
         bitField0_ |= 0x00000080;
         threadType_ = value;
+        onChanged();
+      }
+      
+      // optional string threadSignature = 9;
+      private java.lang.Object threadSignature_ = "";
+      public boolean hasThreadSignature() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      public String getThreadSignature() {
+        java.lang.Object ref = threadSignature_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          threadSignature_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setThreadSignature(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        threadSignature_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearThreadSignature() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        threadSignature_ = getDefaultInstance().getThreadSignature();
+        onChanged();
+        return this;
+      }
+      void setThreadSignature(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000100;
+        threadSignature_ = value;
+        onChanged();
+      }
+      
+      // optional string threadSummaryPage = 10;
+      private java.lang.Object threadSummaryPage_ = "";
+      public boolean hasThreadSummaryPage() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      public String getThreadSummaryPage() {
+        java.lang.Object ref = threadSummaryPage_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          threadSummaryPage_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setThreadSummaryPage(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000200;
+        threadSummaryPage_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearThreadSummaryPage() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        threadSummaryPage_ = getDefaultInstance().getThreadSummaryPage();
+        onChanged();
+        return this;
+      }
+      void setThreadSummaryPage(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000200;
+        threadSummaryPage_ = value;
         onChanged();
       }
       
@@ -11282,22 +11581,23 @@ public final class MediaWikiExportV07Protos {
       "\ttimestamp\030\001 \001(\003\022*\n\013contributor\030\002 \001(\0132\025.",
       "tutorial.Contributor\022\017\n\007comment\030\003 \001(\t\022\020\n" +
       "\010fileName\030\004 \001(\t\022\013\n\003src\030\005 \001(\t\022\014\n\004size\030\006 \001" +
-      "(\005\"\310\001\n\027DiscussionThreadingInfo\022\025\n\rthread" +
-      "Subject\030\001 \001(\t\022\024\n\014threadParent\030\002 \001(\005\022\026\n\016t" +
-      "hreadAncestor\030\003 \001(\005\022\022\n\nthreadPage\030\004 \001(\t\022" +
-      "\020\n\010threadId\030\005 \001(\005\022\024\n\014threadAuthor\030\006 \001(\t\022" +
+      "(\005\"\374\001\n\027DiscussionThreadingInfo\022\025\n\rthread" +
+      "Subject\030\001 \001(\t\022\024\n\014threadParent\030\002 \001(\t\022\026\n\016t" +
+      "hreadAncestor\030\003 \001(\t\022\022\n\nthreadPage\030\004 \001(\t\022" +
+      "\020\n\010threadId\030\005 \001(\t\022\024\n\014threadAuthor\030\006 \001(\t\022" +
       "\030\n\020threadEditStatus\030\007 \001(\t\022\022\n\nthreadType\030" +
-      "\010 \001(\t\"\331\001\n\007LogItem\022\n\n\002id\030\001 \001(\005\022\021\n\ttimesta" +
-      "mp\030\002 \001(\003\022*\n\013contributor\030\003 \001(\0132\025.tutorial" +
-      ".Contributor\022\"\n\007comment\030\004 \001(\0132\021.tutorial",
-      ".Comment\022\014\n\004type\030\005 \001(\t\022\016\n\006action\030\006 \001(\t\022\037" +
-      "\n\004text\030\007 \001(\0132\021.tutorial.LogText\022\020\n\010logTi" +
-      "tle\030\010 \001(\t\022\016\n\006params\030\t \001(\t\"+\n\007LogText\022\017\n\007" +
-      "logText\030\001 \001(\t\022\017\n\007deleted\030\002 \001(\010*A\n\004Case\022\020" +
-      "\n\014FIRST_LETTER\020\001\022\021\n\rCASE_SENSTIVE\020\002\022\024\n\020C" +
-      "ASE_INSENSITIVE\020\003BM\n1org.libliflin.games" +
-      ".wordrelease.mediawikiexport07B\030MediaWik" +
-      "iExportV07Protos"
+      "\010 \001(\t\022\027\n\017threadSignature\030\t \001(\t\022\031\n\021thread" +
+      "SummaryPage\030\n \001(\t\"\331\001\n\007LogItem\022\n\n\002id\030\001 \001(" +
+      "\005\022\021\n\ttimestamp\030\002 \001(\003\022*\n\013contributor\030\003 \001(",
+      "\0132\025.tutorial.Contributor\022\"\n\007comment\030\004 \001(" +
+      "\0132\021.tutorial.Comment\022\014\n\004type\030\005 \001(\t\022\016\n\006ac" +
+      "tion\030\006 \001(\t\022\037\n\004text\030\007 \001(\0132\021.tutorial.LogT" +
+      "ext\022\020\n\010logTitle\030\010 \001(\t\022\016\n\006params\030\t \001(\t\"+\n" +
+      "\007LogText\022\017\n\007logText\030\001 \001(\t\022\017\n\007deleted\030\002 \001" +
+      "(\010*A\n\004Case\022\020\n\014FIRST_LETTER\020\001\022\021\n\rCASE_SEN" +
+      "STIVE\020\002\022\024\n\020CASE_INSENSITIVE\020\003BM\n1org.lib" +
+      "liflin.games.wordrelease.mediawikiexport" +
+      "07B\030MediaWikiExportV07Protos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -11405,7 +11705,7 @@ public final class MediaWikiExportV07Protos {
           internal_static_tutorial_DiscussionThreadingInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_tutorial_DiscussionThreadingInfo_descriptor,
-              new java.lang.String[] { "ThreadSubject", "ThreadParent", "ThreadAncestor", "ThreadPage", "ThreadId", "ThreadAuthor", "ThreadEditStatus", "ThreadType", },
+              new java.lang.String[] { "ThreadSubject", "ThreadParent", "ThreadAncestor", "ThreadPage", "ThreadId", "ThreadAuthor", "ThreadEditStatus", "ThreadType", "ThreadSignature", "ThreadSummaryPage", },
               org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.DiscussionThreadingInfo.class,
               org.libliflin.games.wordrelease.mediawikiexport07.MediaWikiExportV07Protos.DiscussionThreadingInfo.Builder.class);
           internal_static_tutorial_LogItem_descriptor =
