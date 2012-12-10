@@ -1,0 +1,91 @@
+Hi.
+
+Sorry if you don't like any of the below. Haters gonna hate. As Kimya says though,
+"Remember that I love you."
+
+This is code toward the "word" release of 
+Programming Structure for Language and Culture or PSLC.
+
+The goal of PSLC is not to carry a conversation, like touring machines 
+spear-headed by markov chain random-acts-of-violence. The goal of PSLC is 
+to try to take the role of the reader. 
+
+Word Release Milestones:
+1. get Dictionary, parts of speach dfn, spelling
+2. make meaning/root/pos graphs for each word.
+
+stuffs to do:
+Find source. Experiment w/lookup times, create stores for all types of data
+* Buy/Torrent Dictionary?
+* Maybe Merriam Webster would sell me a DB to use?
+* I should probably do all of these releases in school child style of 
+  all at the same time. Word Release:::Kindergarten. 
+
+TEMPLATES wtf templates. like just look at the source of any wiktionary page
+they. are. everywhere. That's probably my next target. 
+
+SPEECH there is a lot of pronunciation items here. I should hook up some
+Phoneme correlations up in here. Then PSLC could be a reader and a listener.
+
+I've been reading some about phonemes (I know pho-nee-mees is wrong but it 
+would be so amusing) and how certain dialects move them/correlate them 
+differently. It sounds completely reasonable to want to build a mathematical 
+model in this area. 
+
+HANDWRITING so my idea for handwriting is to mix coding theory, bezier-curves,
+and hand muscle structure limited range of motion modeling to come up with a
+less statistical model of how handwriting gets recognized. 
+
+Other Releases half-scheduled:
+
+Emotional Release
+========= =======
+-- WARNING: the following is a raw transcription from my initial notes.
+
+What its the participle?
+What are stories?
+What's on your mind?
+How are you feeling?
+Emotions. Associations. "Emotionally Kant's 'Proper'" -- draw curves,
+derivatives ala Kurt Vonnegut graphs.
+K_n = [n_0, n_1, n_2, \dots, n_\Aleph]
+each with a type of emotion/judgment. How each have correlated/ differ over 
+time... They probably reset as time passes.
+
+emo milestones:
+1. Infer emotions.
+2. Emo over time. 
+
+
+GRAMMAR RELEASE
+======= =======
+What are all the ways this sentence can be structured?
+
+INDUCTION/DEDUCTION RELEASE
+========= ========= =======
+
+INSTRUCTION RELEASE
+=========== =======
+
+RHETORIC RELEASE
+======== =======
+1. Identify Ethos, Pathos, Logos
+
+REPHASE RELEASE
+======= =======
+What is the internal language of PSLC?
+What does PSLC think in? how do we translate
+to PSLC?
+
+
+
+
+
+
+
+
+I just found this after I wrote my code. But this is partly to learn new tech
+and partly to have fun doing it. 
+
+
+https://github.com/grundid/wiktionary-parser
